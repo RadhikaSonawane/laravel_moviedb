@@ -4,8 +4,9 @@
     <div class="card-header">
         <h3 style= "font-family: 'Anton', sans-serif;">Find Your Favorite Movies</h3>
         @if(!Auth::guest())
-        <button type="button" style= "float:none;" class="btn btn-success ribbon">
-          <a style= "color:white;" href="{{route('movies.create')}} ">Create Movies</a></button>
+        <button type="button" class="btn btn-success ribbon">
+          <a style="color:white;" href="{{route('movies.create')}}">Create Movies</a>
+        </button>
         @endif
     </div>
 </div></br>

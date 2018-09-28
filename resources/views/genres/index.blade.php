@@ -5,7 +5,7 @@
 <div class="card-header">
   <h3>Movies genre</h3>
   @if(!Auth::guest())
-  <button type="button" class="btn btn-success ribbon"><a  style= "color:white;" href="{{route('genres.create')}} " >Create Genre</a></button>
+    <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.create')}}" role="button" aria-pressed="true">Create Genre</a>
   @endif
 </div>
 </div></br>

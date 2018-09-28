@@ -3,9 +3,7 @@
 <div class="p-3 mb-2 bg-dark text-white">
 <div class="card-header">
         <h3 style= "font-family: 'Anton', sans-serif;">Find Your Favorite Actors</h3>
-        <button type="button" class="btn btn-success ribbon">
-            <a style= "color:white;" href="{{route('actors.create')}} ">Create Actor</a></button>
-        </br>
+        <a class="btn btn-success ribbon" style="color:white;" href="{{route('actors.create')}}" role="button" aria-pressed="true">Create Actor</a>
   </div>
   </div></br></br>
 

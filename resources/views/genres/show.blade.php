@@ -14,13 +14,10 @@
 
                   <div class="col-4">
                   @if(!Auth::guest())
-                      <button class="btn btn-success ribbon">
-                          <a style= "color:white;" href="{{route('genres.edit', ['genre'=> $genre->id])}}">Edit genre</a>
-                      </button>
+                      <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.edit', ['genre'=> $genre->id])}}" role="button" aria-pressed="true">Edit Genre</a>
+
                   @endif
-                      <button class="btn btn-success ribbon">
-                          <a style= "color:white;" href="{{route('genres.index')}} ">Genre list</a>
-                      </button>
+                      <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.index')}}" role="button" aria-pressed="true">Genre list</a>
                   </div>
             </div>
     </div>

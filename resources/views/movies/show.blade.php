@@ -8,12 +8,8 @@
  </div>
         @if(!Auth::guest())
         <div class="col-4">
-            <button class="btn btn-success ribbon">
-                <a style= "color:white;" href="{{route('movies.edit', ['movie'=> $movie->id])}}">Edit Movie</a>
-            </button>
-            <button class="btn btn-success ribbon">
-                <a style= "color:white;" href="{{route('movies.index')}} ">Movie list</a>
-            </button>
+            <a class="btn btn-success ribbon" style="color:white;" href="{{route('movies.edit', ['movie'=> $movie->id])}}" role="button" aria-pressed="true">Edit Movie</a>
+            <a class="btn btn-success ribbon" style="color:white;" href="{{route('movies.index')}} " role="button" aria-pressed="true">Movie List</a>
         </div>
 
 

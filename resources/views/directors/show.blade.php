@@ -11,13 +11,9 @@
     <div class="col-4">
 
     @if(!Auth::guest())
-      <button class="btn btn-success ribbon">
-        <a style= "color:white;" href="{{route('directors.edit', ['director' => $director->id])}}">Edit Director</a>
-      </button>
+      <a class="btn btn-success ribbon" style="color:white;" href="{{route('directors.edit', ['director' => $director->id])}}" role="button" aria-pressed="true">Edit Director</a>
       @endif
-      <button class="btn btn-success ribbon">
-        <a style= "color:white;" href="{{route('directors.index')}} "> Director list</a>
-      </button>
+      <a class="btn btn-success ribbon" style="color:white;" href="{{route('directors.index')}} " role="button" aria-pressed="true">Director list</a>
     </div>
   </div>
 </div>

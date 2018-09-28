@@ -37,7 +37,7 @@
                 <li class="list-group-item">
                     <strong>Run Times: </strong>{{$movie->runtime}} minutes</li>
                 <li class="list-group-item">
-                    <strong>Director:</strong>{{$movie->director->name}}</li>
+                    <strong>Director: </strong>{{$movie->director['name']}}</li>
                 @foreach($movie->genres as $genre)
                 <li class="list-group-item">
                     <strong>Genre:</strong>{{$genre->name}}</li>

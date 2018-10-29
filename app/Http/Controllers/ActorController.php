@@ -43,7 +43,7 @@ class ActorController extends Controller
       $actor_name = $request->input('name');
       //create a new actor
         $actor = new Actor();
-        $actor->name= $request->input('name');
+        $actor->name= $actor_name;
         $actor->save();
       return redirect()->route('actors.index');
 
@@ -67,7 +67,7 @@ class ActorController extends Controller
      */
     public function edit(Actor $actor)
     {
-        return view('actors/edit',  ['actor' => $actor],['movies' => Movie::orderBy('title')->get()]);
+        return view('actors/edit',  ['actor' => $actor]);
     }
 
     /**
@@ -83,7 +83,7 @@ class ActorController extends Controller
 
       $actor->name = $actor_name;
       $actor->save();
-      $actor->movies()->attach($request->input('movies'));
+
 
       return redirect()->route('actors.show', ['actor' => $actor->id]);
     }

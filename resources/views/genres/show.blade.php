@@ -12,6 +12,8 @@
 
 
 
+
+
                   <div class="col-4">
                   @if(!Auth::guest())
                       <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.edit', ['genre'=> $genre->id])}}" role="button" aria-pressed="true">Edit Genre</a>
@@ -25,7 +27,7 @@
 
 <div class="container">
 
-      <ul class="list-group-item disabled">
+    <!--  <ul class="list-group-item disabled">
             @foreach($genre->movies as $movie)
 
             <li class="list-group-item">
@@ -34,7 +36,15 @@
             </li>
 
             @endforeach
-        </ul>
+        </ul>-->
+        <ul class="list-group-item disabled">
+        <li class="list-group-item">
+        <h5>Film</h5>
+        @foreach($genre->movies as $movie)
+        {{$movie->title}}
+        </li>
+        @endforeach
+        <ul>
 
 </div>
 

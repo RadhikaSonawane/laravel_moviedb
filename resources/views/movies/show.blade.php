@@ -11,8 +11,6 @@
             <a class="btn btn-success ribbon" style="color:white;" href="{{route('movies.edit', ['movie'=> $movie->id])}}" role="button" aria-pressed="true">Edit Movie</a>
             <a class="btn btn-success ribbon" style="color:white;" href="{{route('movies.index')}} " role="button" aria-pressed="true">Movie List</a>
         </div>
-
-
         @endif
     </div>
 </div>
@@ -31,19 +29,18 @@
                 <li class="list-group-item">
                     <strong>Description: </strong>{{$movie->description}}</li>
                 <li class="list-group-item">
-                    <strong>Run Times: </strong>{{$movie->runtime}} minutes</li>
+                    <strong>Run Times: </strong>{{$movie->runtime}} hr</li>
                 <li class="list-group-item">
                     <strong>Director: </strong>{{$movie->director['name']}}</li>
+
                 @foreach($movie->genres as $genre)
                 <li class="list-group-item">
                     <strong>Genre:</strong>{{$genre->name}}</li>
                 @endforeach
-                <li class="list-group-item">
-                    <strong>Actors: </strong>Names</li>
 
                 @foreach($movie->actors as $actor)
                 <li class="list-group-item">
-                    {{$actor->name}}</li>
+                    <strong>Actor:</strong>{{$actor->name}}</li>
                 @endforeach
 
             </ul>

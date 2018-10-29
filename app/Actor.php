@@ -10,4 +10,3 @@ class Actor extends Model
         return $this->belongsToMany('App\Movie', 'movie_actor');
   }
 }
-

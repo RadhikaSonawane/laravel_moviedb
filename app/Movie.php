@@ -23,4 +23,3 @@ class Movie extends Model
     }
 
   }
-

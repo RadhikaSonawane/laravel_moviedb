@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Genre;
 use App\Movie;
 
+
 use Illuminate\Http\Request;
 
 class GenreController extends Controller
@@ -17,7 +18,7 @@ class GenreController extends Controller
     public function index()
     {
         $genres = Genre::get();
-        return view('genres/index', ['genres' => Genre::orderBy('name')->get()]);
+        return view('genres/index', ['genres'=>Genre::orderBy('name')->get()]);
     }
     /**
      * Show the form for creating a new resource.
@@ -28,8 +29,8 @@ class GenreController extends Controller
     {
 
     //choose a movie so you can add multple genre to one movie
-      return view('genres.create', ['movie' => $movie, 'movies' => Movie::Get()]);
-      Genre::where(’name’, $request->input(’name’))->exists();
+      return view('genres.create', ['movie' => $movie, 'movies'=>Movie::Get()]);
+      Genre::where('name', $request->input('name'))->exists();
     }
 
     /**
@@ -42,19 +43,12 @@ class GenreController extends Controller
     {
                 $genre_name = $request->input('name');
                 $genre = new Genre();
-                try
-                {
-                    $genre->name = $genre_name;
+                    $genre->name = $request->input('name');
+                    $genre->id=$request->input('id');
                     $genre->save();
                     $genre->movies()->attach($request->input('movies'));
                     return redirect()->route('genres.index');
                  }
-                     catch(\exception $e)
-                 {
-                    return redirect()->route('genres.index');
-                 }
-    }
-
     /**
      * Display the specified resource.
      *
@@ -63,7 +57,7 @@ class GenreController extends Controller
      */
     public function show(Genre $genre)
     {
-        return view('genres/show',  ['genre' => $genre]);
+        return view('genres/show',  ['genre'=>$genre]);
     }
 
     /**
@@ -92,9 +86,10 @@ class GenreController extends Controller
     {
 
         $genre_name = $request->input('name');
+        $genre->movies()->sync($request->input('movies'));
         $genre->name = $genre_name;
         $genre->save();
-        return redirect()->route('genres.show', ['genre' => $genre->id]);
+        return redirect()->route('genres.show', ['genre'=>$genre->id]);
 
     }
 

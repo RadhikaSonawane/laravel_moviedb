@@ -23,6 +23,7 @@ class CreateMoviesTable extends Migration
             $table->date('releaseDate');
             $table->integer('director_id')->nullable()->unsigned();
             $table->integer('actor_id')->nullable()->unsigned();
+            $table->integer('genre_id')->nullable()->unsigned();
             $table->integer('users_id')->nullable()->unsigned();
 
             $table->timestamps();

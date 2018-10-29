@@ -52,7 +52,7 @@
   <!-- Actor -->
   <div>
     Choose Actors
-    <select name="actors[]">
+    <select name="actors[]" multiple="multiple">
       @foreach($actors as $actor)
       <option value="{{ $actor->id }}">{{ $actor->name }} </option>
       @endforeach

@@ -56,13 +56,12 @@
                 </select>
           </div>
 
-
         <!-- Genres  -->
         <div>
                Choose Genres
                 <select  name="genres[]" multiple="multiple">
                   @foreach($genres as $genre)
-                  <option value="{{ $genre->id }}">{{ $genre->name }}
+                  <option value="{{ $genre->id }}">{{$genre->name}}
                   </option>
                   @endforeach
                 </select>

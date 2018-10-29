@@ -18,12 +18,12 @@
           <div class="card text-center">
                   <div class="card-header">
                     <h5><strong>{{$movie->title}}</strong></h5>
-                    <p>({{$movie->releaseDate}})</p>
-                    <p>{{$movie->runtime}} minutes</p>
+                    <p>{{$movie->releaseDate}}</p>
+                    <p>{{$movie->runtime}} hr</p>
                   </div>
           <div class="card-body">
                 <img  class="img-fluid" alt="Responsive image" width="200" height="250" src="{{$movie->picture}}"></br>
-                <p class="text-muted">({{$movie->description}}) </p>
+                <p class="text-muted">{{$movie->description}}</p>
                 <a href="{{route('movies.show', ['movie'=>$movie->id])}}" class="btn btn-success">Read more</a>
 
                </div>

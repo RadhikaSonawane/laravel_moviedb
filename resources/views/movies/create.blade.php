@@ -38,30 +38,29 @@
     </div>
       </br>
     <!-- Director  -->
-    <div>
-      Choose Directors
-      <select name="director">
-        @foreach($directors as $director)
-        <option value="{{ $director->id }}">{{ $director->name }}</option>
-        @endforeach
-      </select>
-    </div>
+    <div class="form-group">
 
-    </br>
+              <label>Director</label>
+              <select name="director_id" class="form-control">
+                <option value="select director">-</option>
+                @foreach($directors as $director)
+                <option value="{{$director->id}}">
+                  {{$director->name}}
+                </option>
+                @endforeach
+                </select>
 
-  <!-- Actor -->
-  <div>
-    Choose Actors
-    <select name="actors[]" multiple="multiple">
-      @foreach($actors as $actor)
-      <option value="{{ $actor->id }}">{{ $actor->name }} </option>
-      @endforeach
-    </select>
-  </div>
-
+                <label>Actor</label>
+              <select multiple name="actor_id" class="form-control">
+                <option value="select actor">-</option>
+                @foreach($actors as $actor)
+                <option value="{{$actor->id}}" selected>
+                  {{$actor->name}}
+                </option>
+                @endforeach
+                </select>
   </br>
   <!-- Genres -->
-
     <div>
         Choose Movie Genres
         <select name="genres[]" multiple="multiple">

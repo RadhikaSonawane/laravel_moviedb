@@ -1,36 +1,24 @@
-@extends('layouts/app') @section('content')
+@extends('layouts/app')
 
-<div class="p-3 mb-2 bg-dark text-white">
-    <div class="card-header">
-        <h5> Create Genre</h5>
-    </div>
-</div>
+@section('content')
 
-<div class="container">
-      <form method="post"action="{{route('genres.store')}}">
-            @csrf
+<h1>Create Genre</h1>
 
-            <div class="form-group">
-                Movie's genre:</br>
-                <input type="text" name="name" class="form-control" value="" placeholder="add genre">
-            </div>
 
-            <div>
-               Choose Movies:</br>
-              <select name="movies[]" multiple="multiple">
-                @foreach($movies as $movie)
-                <option value="{{ $movie->id }}">{{ $movie->title }}
-                </option>
-                @endforeach
-              </select>
-            </div>
 
-            </br>
-
-            <div>
-              <input type="submit" class="btn btn-success ribbon" value="Update">
-              </div>
-  </div>
-</form>
-
+<form method="POST" action="{{route('genres.store')}}">
+@csrf
+  <div class="form-group">
+  <input type="text" name="name"  class="form-control" placeholder="genre-name"/>
+  <label>Movie</label>
+            <select name="movies" class="form-control" required>
+              <option value="">-</option>
+              @foreach($movies as $movie)
+              <option value="{{$movie->id}}">
+                {{$movie->title}}
+              </option>
+              @endforeach
+              <input type="submit" class="btn brn-primary" value="Add genre"/>
+        </div>
+      </form>
 @endsection

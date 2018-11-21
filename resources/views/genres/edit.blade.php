@@ -13,14 +13,6 @@
 
         <input type="hidden" name="_method" value="PUT">
 
-            <div>
-                 Choose Movies:</br>
-                <select name="movies[]" multiple="multiple">
-                      @foreach($movies as $movie)
-                        <option value="{{ $movie->id }}"> {{ $movie->title }}</option>
-                      @endforeach
-                </select>
-            </div>
             </br>
 
             <div class="form-group">

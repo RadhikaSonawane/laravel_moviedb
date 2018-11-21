@@ -1,31 +1,33 @@
-@extends('layouts/app') @section('content')
+@extends('layouts.app')
 
-<!-- Genres   -->
-<div class="p-3 mb-2 bg-dark text-white">
-<div class="card-header">
-  <h3>Movies genre</h3>
-  @if(!Auth::guest())
-    <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.create')}}" role="button" aria-pressed="true">Create Genre</a>
-  @endif
+@section('content')
+
+
+  <div class="container">
+    <div class="card">
+      <div class="card-header bg-dark text-light">
+        <h5 class="card-title">Genres</h5>
+        @if(!Auth::guest())
+        <a href="{{route('genres.create')}}" class="btn btn-primary" role="Button" style="float:right"> Create genre </a>
+      @endif
+    </div>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-8">
+            <table class="table table-striped">
+              <tbody>
+                @foreach($genres as $genre)
+                <tr>
+                  <td><a href="{{route('genres.show', ['genre' => $genre->id])}}">{{$genre->name}}</a></td>
+                </tr>
+                    @endforeach
+
+              </tbody>
+            </table>
+          </div>
+        </div>
+    </div>
+  </div>
 </div>
-</div></br>
 
-<div class="container">
-<div class="card">
-
-    <ul class="list-group-item disabled">
-      @foreach($genres as $genre)
-
-        <li class="list-group-item">
-            {{ $genre->name}} </br>
-
-            <a class="btn btn-success ribbon" href="{{route('genres.show', ['genre'=>$genre->id])}}">Read more</a></br>
-        </li>
-
-        @endforeach
-    </ul>
-
-</div>
-
-</div>
 @endsection

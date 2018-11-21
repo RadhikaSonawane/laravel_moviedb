@@ -29,18 +29,18 @@
                 <li class="list-group-item">
                     <strong>Description: </strong>{{$movie->description}}</li>
                 <li class="list-group-item">
-                    <strong>Run Times: </strong>{{$movie->runtime}} hr</li>
+                    <strong>Run Times: </strong>{{$movie->runtime}} </li>
                 <li class="list-group-item">
-                    <strong>Director: </strong>{{$movie->director['name']}}</li>
+                    <strong>Director: </strong><a href="{{$movie->director['id']}}">{{$movie->director['name']}}</a></li>
 
                 @foreach($movie->genres as $genre)
                 <li class="list-group-item">
-                    <strong>Genre:</strong>{{$genre->name}}</li>
+                    <strong>Genre:</strong><a href="{{route('genres.show', ['genre' => $genre->id])}}">{{$genre->name}}</a></li>
                 @endforeach
 
                 @foreach($movie->actors as $actor)
                 <li class="list-group-item">
-                    <strong>Actor:</strong>{{$actor->name}}</li>
+                    <strong>Actor:</strong><a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}</a></li>
                 @endforeach
 
             </ul>

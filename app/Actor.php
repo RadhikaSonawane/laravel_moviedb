@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Actor extends Model
 {
     public function movies (){
-        return $this->belongsToMany('App\Movie', 'movie_actor');
+        return $this->belongsToMany('App\Movie');
   }
 }

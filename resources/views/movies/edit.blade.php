@@ -39,6 +39,7 @@
         <div>
                Choose Director
               <select name="director">
+                <option value="">-</option>
                 @foreach($directors as $director)
                   <option value="{{ $director->id }}">{{ $director->name }}</option>
                 @endforeach
@@ -50,6 +51,7 @@
                 Choose Actors
                 </br>
                 <select name="actors[]" multiple="multiple">
+                  <option value="">-</option>
                   @foreach($actors as $actor)
                   <option value="{{ $actor->id }}">{{$actor->name}}</option>
                   @endforeach
@@ -60,6 +62,7 @@
         <div>
                Choose Genres
                 <select  name="genres[]" multiple="multiple">
+                  <option value="">-</option>
                   @foreach($genres as $genre)
                   <option value="{{ $genre->id }}">{{$genre->name}}
                   </option>

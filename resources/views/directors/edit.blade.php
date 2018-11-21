@@ -14,10 +14,8 @@
     {{ csrf_field() }}
 
     <div class="form-group">
-
-        <input type="text" class="form-control" name="name" value="{{$director->name}}" required></br>
+        <h2>{{$director->name}}</h2></br>
         <textarea class="form-control" name="name"  value="" required>{{ $director->name }}</textarea></br>
-
         <button type="submit" class="btn btn-success ribbon">Update</button>
     </div>
 </form>

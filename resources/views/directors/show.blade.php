@@ -21,13 +21,11 @@
 <div class="container">
 
   <div class="card-body">
-
-    <p>{{ $director->information }}</p>
     <ul class="list-group-item disabled">
     <li class="list-group-item">
     <h5>Film</h5>
     @foreach($director->movies as $movie)
-    {{$movie->title}}
+    <a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}}</a>
     </li>
     @endforeach
     <ul>

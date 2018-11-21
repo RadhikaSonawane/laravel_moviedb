@@ -1,53 +1,35 @@
-@extends('layouts/app') @section('content')
+@extends('layouts.app')
 
-<div class="p-3 mb-2 bg-dark text-white">
-    <div class="card-header">
-
-            <div class="row">
-                  <div class="col-8">
-                      <h5>
-                          <strong>Genre={{$genre->name}} </strong>
-                      </h5>
-                  </div>
-
-
-
-
-
-                  <div class="col-4">
-                  @if(!Auth::guest())
-                      <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.edit', ['genre'=> $genre->id])}}" role="button" aria-pressed="true">Edit Genre</a>
-
-                  @endif
-                      <a class="btn btn-success ribbon" style="color:white;" href="{{route('genres.index')}}" role="button" aria-pressed="true">Genre list</a>
-                  </div>
-            </div>
-    </div>
-</div>
+@section('content')
 
 <div class="container">
+  <div class="card">
+    <div class="card-header bg-dark text-light">
+      <h5 class="card-title">{{$genre->name}}</h5>
 
-    <!--  <ul class="list-group-item disabled">
-            @foreach($genre->movies as $movie)
-
-            <li class="list-group-item">
-                {{$movie->title}}
-                </br>
-            </li>
-
-            @endforeach
-        </ul>-->
-        <ul class="list-group-item disabled">
-        <li class="list-group-item">
-        <h5>Film</h5>
-        @foreach($genre->movies as $movie)
-        {{$movie->title}}
-        </li>
-        @endforeach
-        <ul>
-
+    </div>
+    <div class="cantainer">
+      <div class="row">
+        <div class="col-md-8">
+          <table class="table table-striped text-center">
+            <tbody>
+              <tr>
+                <th>Movies List</th>
+                <td>@foreach($genre->movies as $movie)<a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}}</a>, @endforeach</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="text-center">
+    @if(!Auth::guest())
+      <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.edit', ['genre' => $genre->id])}}" role="button" aria-pressed="true">Edit Genre</a><br><br>
+      <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.edit', ['genre' => $genre->id])}}" role="button" aria-pressed="true">Add Movie</a><br><br>
+      @endif
+      <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.index')}}" role="Button" style="float:left">Back</a>
+  <br/><br/></div>
 </div>
 
-
-
+</div>
 @endsection

@@ -32,20 +32,19 @@
                     <strong>Run Times: </strong>{{$movie->runtime}} </li>
                 <li class="list-group-item">
                     <strong>Director: </strong><a href="{{$movie->director['id']}}">{{$movie->director['name']}}</a></li>
-
+                <li class="list-group-item">
+                  <strong>Genre:</strong>
                 @foreach($movie->genres as $genre)
-                <li class="list-group-item">
-                    <strong>Genre:</strong><a href="{{route('genres.show', ['genre' => $genre->id])}}">{{$genre->name}}</a></li>
+                    <a href="{{route('genres.show', ['genre' => $genre->id])}}">{{$genre->name}}</a>
                 @endforeach
-
+                </li>
+                <li class="list-group-item">
+                  <strong>Actor:</strong>
                 @foreach($movie->actors as $actor)
-                <li class="list-group-item">
-                    <strong>Actor:</strong><a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}</a></li>
+                    <a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}</a>
                 @endforeach
-
+                </li>
             </ul>
-            @if(!Auth::guest())
-            @endif
 
           </div>
         </br>

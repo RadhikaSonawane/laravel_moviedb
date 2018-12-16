@@ -60,7 +60,7 @@
 
         <!-- Genres  -->
         <div>
-               Choose Genres
+               Choose Genres <br/>
                 <select  name="genres[]" multiple="multiple">
                   <option value="">-</option>
                   @foreach($genres as $genre)

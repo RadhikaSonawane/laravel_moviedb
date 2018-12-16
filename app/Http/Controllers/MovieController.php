@@ -107,7 +107,6 @@ class MovieController extends Controller
       $movie_director_id = $request->input('director');
       $movie->actors()->sync($request->input('actors'));
       $movie->genres()->sync($request->input('genres'));
-      $movie->users()->sync($request->input('users'));
       $movie_description = $request->input('description');
 
       $movie->title = $movie_title;

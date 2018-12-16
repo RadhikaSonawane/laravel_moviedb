@@ -5,7 +5,7 @@
 <div class="container">
   <div class="card">
     <div class="card-header bg-dark text-light">
-      <h5 class="card-title">{{$genre->name}}</h5>
+    <h5 style= "font-family: 'Anton', sans-serif;"> <strong>{{$genre->name}}</strong> </h5>
 
     </div>
     <div class="cantainer">
@@ -25,7 +25,6 @@
     <div class="text-center">
     @if(!Auth::guest())
       <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.edit', ['genre' => $genre->id])}}" role="button" aria-pressed="true">Edit Genre</a><br><br>
-      <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.edit', ['genre' => $genre->id])}}" role="button" aria-pressed="true">Add Movie</a><br><br>
       @endif
       <a class="btn btn-success ribbon" style="color:white; width:200px;" href="{{route('genres.index')}}" role="Button" style="float:left">Back</a>
   <br/><br/></div>

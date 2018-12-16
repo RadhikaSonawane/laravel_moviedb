@@ -40,38 +40,41 @@
     <!-- Director  -->
     <div class="form-group">
 
-              <label>Director</label>
-              <select name="director_id" class="form-control">
-                <option value="select director">-</option>
-                @foreach($directors as $director)
-                <option value="{{$director->id}}">
-                  {{$director->name}}
-                </option>
-                @endforeach
-                </select>
-
-                <label>Actor</label>
-              <select multiple name="actor_id" class="form-control">
-                <option value="select actor">-</option>
-                @foreach($actors as $actor)
-                <option value="{{$actor->id}}" selected>
-                  {{$actor->name}}
-                </option>
-                @endforeach
-                </select>
-  </br>
-  <!-- Genres -->
-    <div>
-        Choose Movie Genres
-        <select name="genres[]" multiple="multiple">
-          @foreach($genres as $genre)
-          <option value="{{ $genre->id }}">{{ $genre->name }}
-          </option>
-          @endforeach
-        </select>
+      <!--  Director  -->
+      <div>
+             Choose Director
+            <select name="director">
+              <option value="">-</option>
+              @foreach($directors as $director)
+                <option value="{{ $director->id }}">{{ $director->name }}</option>
+              @endforeach
+            </select>
       </div>
-    </br>
 
+       <!-- Actors -->
+       <div>
+              Choose Actors
+              </br>
+              <select name="actors[]" multiple="multiple">
+                <option value="">-</option>
+                @foreach($actors as $actor)
+                <option value="{{ $actor->id }}">{{$actor->name}}</option>
+                @endforeach
+              </select>
+        </div>
+
+      <!-- Genres  -->
+      <div>
+             Choose Genres <br/>
+              <select  name="genres[]" multiple="multiple">
+                <option value="">-</option>
+                @foreach($genres as $genre)
+                <option value="{{ $genre->id }}">{{$genre->name}}
+                </option>
+                @endforeach
+              </select>
+        </div>
+ <br/>
     <div>
       <input type="submit" class="btn-danger" value="Update">
     </div>

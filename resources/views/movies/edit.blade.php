@@ -41,7 +41,10 @@
               <select name="director">
                 <option value="">-</option>
                 @foreach($directors as $director)
-                  <option value="{{ $director->id }}">{{ $director->name }}</option>
+                  <option @if ($director->id == $movie->director->id)
+                      selected="selected"
+                  @endif
+                   value="{{ $director->id }}">{{ $director->name }}</option>
                 @endforeach
               </select>
         </div>
@@ -53,18 +56,29 @@
                 <select name="actors[]" multiple="multiple">
                   <option value="">-</option>
                   @foreach($actors as $actor)
-                  <option value="{{ $actor->id }}">{{$actor->name}}</option>
+                  <option @foreach($movie->actors as $movieactor)
+                      @if ($actor->id == $movieactor->id)
+                           selected="selected"
+                       @endif
+                     @endforeach
+                      value="{{ $actor->id }}">{{$actor->name}}</option>
                   @endforeach
                 </select>
           </div>
 
         <!-- Genres  -->
+        {{$movie->genres  }}
         <div>
                Choose Genres <br/>
                 <select  name="genres[]" multiple="multiple">
                   <option value="">-</option>
                   @foreach($genres as $genre)
-                  <option value="{{ $genre->id }}">{{$genre->name}}
+                  <option @foreach($movie->genres as $moviegenre)
+                    @if ($genre->id == $moviegenre->id)
+                           selected="selected"
+                    @endif
+                   @endforeach
+                  value="{{ $genre->id }}">{{$genre->name}}
                   </option>
                   @endforeach
                 </select>

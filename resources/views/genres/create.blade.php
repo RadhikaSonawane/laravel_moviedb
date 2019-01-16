@@ -11,7 +11,7 @@
   <div class="form-group">
   <input type="text" name="name"  class="form-control" placeholder="genre-name"/>
   <label>Movie</label>
-            <select name="movies" class="form-control" required>
+            <select name="movies" class="form-control">
               <option value="">-</option>
               @foreach($movies as $movie)
               <option value="{{$movie->id}}">

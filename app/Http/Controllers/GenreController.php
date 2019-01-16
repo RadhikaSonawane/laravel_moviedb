@@ -86,7 +86,7 @@ class GenreController extends Controller
     {
 
         $genre_name = $request->input('name');
-        $genre->movies()->sync($request->input('movies'));
+        //$genre->movies()->sync($request->input('movies'));
         $genre->name = $genre_name;
         $genre->save();
         return redirect()->route('genres.show', ['genre'=>$genre->id]);

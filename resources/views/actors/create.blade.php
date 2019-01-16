@@ -12,9 +12,9 @@
 
     {{ csrf_field() }}
     <input type="hidden" name="_method" value="POST"/>
-    
+
     <div class="form-group">
-    <input type="text" class="form-control" placeholder="Name" name="name" required></br>
+    <input type="text" class="form-control" placeholder="Name" name="name"required></br>
 
         <button type="submit" class="btn btn-success ribbon">Send</button>
     </div>

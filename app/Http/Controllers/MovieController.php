@@ -48,6 +48,7 @@ class MovieController extends Controller
       $movie_releaseDate = $request->input('releaseDate');
       $movie_runtime = $request->input('runtime');
       $movie_director_id = $request->input('director');
+      $movie_genre_id = $request->input('genre');
       $movie_actor_id = $request->input('actor');
       $movie_description = $request->input('description');
 
@@ -59,8 +60,11 @@ class MovieController extends Controller
       $movie->runtime = $movie_runtime;
       $movie->releaseDate = $movie_releaseDate;
       $movie->director_id = $movie_director_id;
-
       $movie->save();
+      $movie->actors()->sync($request->input('actors'));
+      $movie->genres()->sync($request->input('genres'));
+
+
 
       return redirect()->route('movies.index');
     }

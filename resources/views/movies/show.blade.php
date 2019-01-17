@@ -31,7 +31,7 @@
                 <li class="list-group-item">
                     <strong>Run Times: </strong>{{$movie->runtime}} </li>
                 <li class="list-group-item">
-                    <strong>Director: </strong><a href="{{$movie->director['id']}}">{{$movie->director['name']}}</a></li>
+                    <strong>Director: </strong><a href="{{route('directors.show', ['director' => $movie->director->id])}}">{{$movie->director['name']}}</a></li>
                 <li class="list-group-item">
                   <strong>Genre:</strong>
                 @foreach($movie->genres as $genre)

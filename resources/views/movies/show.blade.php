@@ -44,7 +44,45 @@
                     <a href="{{route('actors.show', ['actor' => $actor->id])}}">{{$actor->name}}</a>
                 @endforeach
                 </li>
+                <li>
+                @auth
+                    <form action="{{route('ratings.store', ['id' => $movie->id])}}" method="post">
+                    @csrf
+                    <input type="hidden" name="movie_id" value="{{$movie->id}}"/>
+                        <select name="rating">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <input type="submit" value="Rate"/>
+                        </form>
+                </li>
+                @endauth
             </ul>
+            <ul><?php
+            if (!$movie->ratings)
+                $movie->ratings = array();
+        $totalCountedRatings = count($movie->ratings);
+        $sumOfTheRatings = 0;
+        foreach ($movie->ratings as $rating) {
+          $sumOfTheRatings += $rating->rating;
+        }
+        $getRatings = 0;
+        if($totalCountedRatings) {
+          $getRatings = $sumOfTheRatings/$totalCountedRatings;
+        }
+        ?>
+        <div class="row">
+          <div class="col-6">
+            <h4>Ratings: {{$getRatings}}</h4>
+          </div>
+          <div class="col-6">
+            <h4>Number of ratings: {{$totalCountedRatings}}</h4>
+          </div>
+        </div>
+        </ul>
 
           </div>
         </br>

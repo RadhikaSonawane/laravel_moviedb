@@ -51,5 +51,17 @@ Route::get('/genres/{genre}/edit', 'GenreController@edit')->name('genres.edit');
 Route::get('/genres/{genre}', 'GenreController@show')->name('genres.show');
 Route::post('/genres/{genre}', 'GenreController@update')->name('genres.update');
 Route::put('/genres/{genre}', 'GenreController@update')->name('genres.update');
+
+//Rating Routes
+Route::get('/ratings', 'RatingController@index')->name('ratings.index');
+Route::get('/ratings/create', 'RatingController@index')->name('ratings.create');
+Route::post('/ratings', 'RatingController@index')->name('ratings.store');
+Route::put('/{id}', 'RatingController@index')->name('ratings.update');
+Route::get('/ratings/{rating}/edit', 'RatingController@indext')->name('ratings.edit');
+Route::get('/ratings/{rating}', 'RatingController@index')->name('ratings.show');
+Route::post('/ratings/{rating}', 'RatingController@index')->name('ratings.update');
+Route::put('/ratings/{rating}', 'RatingController@index')->name('ratings.update');
+Route::post('/rate/movie/{movie}', 'RatingController@store')->name('ratings.store');
+
 //logOut
 Route::get('/logout', 'LogoutController@logout')->name('logout');

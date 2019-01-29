@@ -4,6 +4,7 @@ use App\Director;
 use App\Movie;
 use App\Genre;
 use App\Actor;
+use App\Ratings;
 use Illuminate\Http\Request;
 class MovieController extends Controller
 {
@@ -28,11 +29,14 @@ class MovieController extends Controller
       $directors = Director::orderBy('name')->get();
       $genres = Genre::orderBy('name')->get();
       $actors = Actor::orderBy('name')->get();
+      #$ratings = Ratings::orderBy('rating')->get();
+      $ratings = array("rating"=>3);
       return view('movies.create',[
         'movies' => $movie,
         'directors' => $directors,
         'genres' => $genres,
         'actors' => $actors,
+        'ratings'=> $ratings,
       ]);
     }
     /**
@@ -63,6 +67,7 @@ class MovieController extends Controller
       $movie->save();
       $movie->actors()->sync($request->input('actors'));
       $movie->genres()->sync($request->input('genres'));
+      #$movie->ratings()->sync($request->input('ratings'));
 
 
 
